@@ -6,9 +6,9 @@ with open("README.md", "r", encoding="utf-8") as f:
 
 __version__ = "0.0.0"
 
-REPO_NAME = "End-to-End-project-Mlops-Mlflow" # Le nom de votre repo GitHub
+REPO_NAME = "End-to-End-project-Mlops-Mlflow" # nom de votre repo GitHub
 AUTHOR_USER_NAME = "Amal Kammoun"
-SRC_REPO = "mlProject" # SRC_REPO : variable qui stocke le nom de votre package tel qu'il apparaîtra sur PyPI et comment les utilisateurs l'installeront.
+SRC_REPO = "mlProject" # variable qui stocke le nom de votre package tel qu'il apparaîtra sur PyPI et comment les utilisateurs l'installeront
 AUTHOR_EMAIL = "kamounamal34@gmail.com"
 
 
