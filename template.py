@@ -43,7 +43,14 @@ list_of_files = [
     "Dockerfile",
     "requirements.txt",
     "setup.py",
+    
     "research/trials.ipynb",
+    "research/01_data_ingestion.ipynb",
+    "research/02_data_validation.ipynb", 
+    "research/03_data_transformation.ipynb",
+    "research/04_model_trainer.ipynb",            
+    "research/05_model_evaluation.ipynb",         
+        
     "templates/index.html",
     "test.py"
 ]

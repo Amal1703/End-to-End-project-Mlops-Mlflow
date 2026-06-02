@@ -14,9 +14,9 @@
 
 6. Update the components # data ingestion, data Validation, data transformation 
 
-7. Update the pipeline # Pipeline : tu coordonne les étapes (ordre d'execution). exple : Data Ingestion -> Data Validation -> Data Transformation -> Model Training -> Model Evaluation
-
+7. Update the pipeline # Pipeline : tu coordonne les étapes (ordre d'execution). exple pour "Data ingestion" : Télécharge les données, les sauvegarder et lesdézipper
 
 8. Update the main.py # lance le pipeline
+
 9. Update the app.py # interface utilisateur (UI/API)
 

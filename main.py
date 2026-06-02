@@ -1,6 +1,9 @@
 from mlProject import logger
 from mlProject.pipeline.stage_01_data_ingestion import DataIngestionTrainingPipeline_main
+from mlProject.pipeline.stage_02_data_validation import DataValidationTrainingPipeline_main
 
 #logger.info("welcome")
 
 DataIngestionTrainingPipeline_main()
+
+DataValidationTrainingPipeline_main()
