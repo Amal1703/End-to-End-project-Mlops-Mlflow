@@ -19,6 +19,7 @@ class DataIngestionTrainingPipeline:
     
 def DataIngestionTrainingPipeline_main() :
     try:
+        logger.info(f"\n\nx==========x")
         logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<")
         obj = DataIngestionTrainingPipeline()
         obj.main()
@@ -26,6 +27,3 @@ def DataIngestionTrainingPipeline_main() :
     except Exception as e:
         logger.exception(e)
         raise e
-
-
-

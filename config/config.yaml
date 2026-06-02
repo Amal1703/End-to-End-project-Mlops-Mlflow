@@ -10,7 +10,12 @@ data_ingestion:  # data_ingestion : Télécharge les données, Les sauvegarde et
   local_data_file: artifacts/data_ingestion/data.zip # Chemin local où sera enregistré les données téléchargé
   unzip_dir: artifacts/data_ingestion
 
-data_validation:  
+data_validation:  # consiste à vérifier que les données sont correctes
   root_dir: artifacts/data_validation # Indique le dossier de travail pour l'étape de validation.
   unzip_data_dir: artifacts/data_ingestion/winequality-red.csv # Indique le dossier ou se trouve les données
   STATUS_FILE: artifacts/data_validation/status.txt # validation status of data : if data is in correct format => validation status = true else false
+
+data_transformation: # consiste à transformer que les données : normalisatiion, PCA ... et split data pour training
+  root_dir:  artifacts/data_transformation
+  data_path: artifacts/data_ingestion/winequality-red.csv
+  
