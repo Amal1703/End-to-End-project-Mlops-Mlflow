@@ -1,0 +1,10 @@
+artifact_location: file:///c:/Users/Amal/Desktop/End%20to%20End%20project%20Mlops%20mlflow%20github/End-to-End-project-Mlops-Mlflow/mlruns/329265279591514747/models/m-568e64fd225e461591ffa43f8bb1a752/artifacts
+creation_timestamp: 1780493051580
+experiment_id: '329265279591514747'
+last_updated_timestamp: 1780493066201
+model_id: m-568e64fd225e461591ffa43f8bb1a752
+model_type: null
+name: model
+source_run_id: 32da01f466ea4d5997e13fcce4ecfee6
+status: 2
+status_message: null

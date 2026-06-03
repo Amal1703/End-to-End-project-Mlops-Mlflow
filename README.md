@@ -20,3 +20,43 @@
 
 9. Update the app.py # interface utilisateur (UI/API)
 
+
+# How to run this project?
+### STEPS:
+
+Clone the repository
+
+```bash, cmd
+git clone https://github.com/Amal1703/End-to-End-project-Mlops-Mlflow.git
+```
+
+### STEP 02- install the requirements
+```bash, cmd
+pip install -r requirements.txt
+```
+
+
+```bash, cmd
+# Finally run the following command
+python app.py
+```
+
+Now,
+```bash, cmd
+open up you local host and port
+```
+
+
+
+# MLflow with DagsHub
+
+   - Sign in to DagsHub.
+   - Create a new repository by clicking the "New Repository" button.
+   - Click "Connect a Repository".
+   - Select "Connect GitHub".
+   - Authorize DagsHub to access your GitHub account.
+   - Choose the GitHub repository you want to connect.
+   - Once connected, your MLflow Tracking URI will be:
+   https://dagshub.com/kamounamal34/End-to-End-project-Mlops-Mlflow.mlflow
+
+

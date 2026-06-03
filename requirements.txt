@@ -2,7 +2,9 @@ pandas
 numpy
 scikit-learn
 matplotlib
+
 mlflow==3.1.4
+dagshub==0.7.0 # mlflow
 
 notebook  # Jupyter notebook
 
@@ -12,6 +14,7 @@ tqdm
 ensure==1.0.2
 joblib
 types-PyYAML
+
 
 
 Flask # Web / API

@@ -1,1 +1,4 @@
-key: value
+Model_name: ElasticNet
+# params du modéle
+alpha: 0.9
+l1_ratio: 0.2

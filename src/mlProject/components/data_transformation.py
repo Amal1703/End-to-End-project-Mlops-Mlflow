@@ -34,15 +34,12 @@ class DataTransformation:
         
     def train_test_splitting(self, data_normalized):
   
-       # Split the input normalized data into training, validation and test sets : (0.70, 0.15, 0.15)
-        train, test_val = train_test_split(data_normalized, test_size=0.30, random_state=42)
-        validation, test = train_test_split(test_val, test_size=0.50, random_state=42)
+       # Split the input normalized data into training and test sets : (0.75, 0.25)
+        train, test = train_test_split(data_normalized, test_size=0.30, random_state=42)
         
         train.to_csv(os.path.join(self.config.root_dir, "train.csv"),index = False)
-        validation.to_csv(os.path.join(self.config.root_dir, "validation.csv"),index = False)
         test.to_csv(os.path.join(self.config.root_dir, "test.csv"),index = False)
 
-        logger.info("Split data into training, validation and test sets")
+        logger.info("Split data into training and test sets")
         logger.info("train shape: " + str(train.shape))
-        logger.info("validation shape: " + str(validation.shape) )      
         logger.info("test shape: "+ str(test.shape))

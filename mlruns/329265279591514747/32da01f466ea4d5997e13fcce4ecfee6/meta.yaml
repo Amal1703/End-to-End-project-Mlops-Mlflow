@@ -1,0 +1,14 @@
+artifact_uri: file:///c:/Users/Amal/Desktop/End%20to%20End%20project%20Mlops%20mlflow%20github/End-to-End-project-Mlops-Mlflow/mlruns/329265279591514747/32da01f466ea4d5997e13fcce4ecfee6/artifacts
+end_time: 1780493067239
+entry_point_name: ''
+experiment_id: '329265279591514747'
+lifecycle_stage: active
+run_id: 32da01f466ea4d5997e13fcce4ecfee6
+run_name: Elastic_model
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1780493051368
+status: 4
+tags: []
+user_id: Amal

@@ -1,0 +1,14 @@
+artifact_uri: file:///c:/Users/Amal/Desktop/End%20to%20End%20project%20Mlops%20mlflow%20github/End-to-End-project-Mlops-Mlflow/mlruns/0/c01a8b8157e2444bb2201e91b7a1bf2c/artifacts
+end_time: 1780483372875
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: c01a8b8157e2444bb2201e91b7a1bf2c
+run_name: gregarious-bee-249
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1780483351068
+status: 4
+tags: []
+user_id: Amal
