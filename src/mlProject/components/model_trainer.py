@@ -26,8 +26,15 @@ class ModelTrainer:
         lr = ElasticNet(alpha=self.config.alpha, l1_ratio=self.config.l1_ratio, random_state=42)
         lr.fit(train_x, train_y)
         
-        # if the model name already exists, raise an error
-        if os.path.exists(self.config.root_dir + "/" + self.config.model_name):   
-            raise FileExistsError(f"The model file {self.config.model_name} already exists, choose a different name")
+        # if the model name already exists, add 1 to the model name to have a new model name 
+        model_name = self.config.model_name 
+        base_name, extension = os.path.splitext(model_name)
+        
+        counter = 1
+        new_name = model_name
 
-        joblib.dump(lr, os.path.join(self.config.root_dir, self.config.model_name))
+        while os.path.exists(os.path.join(self.config.root_dir, new_name)):
+            new_name = f"{base_name}{counter}{extension}"
+            counter += 1
+
+        joblib.dump(lr, os.path.join(self.config.root_dir, new_name))

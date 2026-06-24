@@ -11,6 +11,7 @@ from mlProject.entity.config_entity import ModelEvaluationConfig
 from mlProject.utils.common import save_json
 from pathlib import Path
 from mlProject.constants.Mlflow_uri import experiment_name
+import glob
 
 class ModelEvaluation:
     def __init__(self, config: ModelEvaluationConfig):
@@ -31,7 +32,18 @@ class ModelEvaluation:
     def log_into_mlflow(self):
 
         test_data = pd.read_csv(self.config.test_data_path)
-        model = joblib.load(self.config.model_path)
+        
+        #model = joblib.load(self.config.model_path)
+        
+       # Charger le model le plus récent
+        model_dir = self.config.model_path
+
+        latest_model = max(
+            glob.glob(os.path.join(model_dir, "*.joblib")),
+            key=os.path.getmtime
+        )
+
+        model = joblib.load(latest_model)
 
         test_x = test_data.drop([self.config.target_column], axis=1)
         test_y = test_data[[self.config.target_column]]
@@ -51,11 +63,21 @@ class ModelEvaluation:
             scores = {"rmse": rmse, "mae": mae, "r2": r2}
             
 
-            # if the metric file name already exists, raise an error
-            if os.path.exists(self.config.metric_file_name):   
-               raise FileExistsError(f"The model file {self.config.metric_file_name} already exists, choose a different name")
-        
-            save_json(path=Path(self.config.metric_file_name), data=scores)
+        # if the metric file name  already exists, add 1 to the metric file name to have a new metric file name 
+            metric_file_name = self.config.metric_file_name  # ex: metrics.json
+            base_name, extension = os.path.splitext(metric_file_name)
+
+            counter = 1
+            new_metric_file_name = metric_file_name
+
+            while os.path.exists(new_metric_file_name):
+                new_metric_file_name = f"{base_name}{counter}{extension}"
+                counter += 1
+
+            save_json(path=Path(new_metric_file_name), data={**scores, 
+                                                             "loaded_model_params": str(model),
+                                                            "loaded_model_path": str(Path(latest_model).as_posix()) })
+
 
             mlflow.log_params(self.config.all_params)
 

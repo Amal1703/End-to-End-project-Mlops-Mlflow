@@ -29,13 +29,15 @@ class DataTransformation:
         # Concate target (output) to input normalised_data
         self.data_normalized = pd.concat([input_normalized_data , data[self.config.all_schema.TARGET_COLUMN.name]], axis=1)
 
-        return self.data_normalized
+        #return self.data_normalized
+        return data
         
-        
-    def train_test_splitting(self, data_normalized):
+    def train_test_splitting(self, data):
+    #def train_test_splitting(self, data_normalized):
   
        # Split the input normalized data into training and test sets : (0.75, 0.25)
-        train, test = train_test_split(data_normalized, test_size=0.30, random_state=42)
+        #train, test = train_test_split(data_normalized, test_size=0.30, random_state=42)
+        train, test = train_test_split(data, test_size=0.30, random_state=42)
         
         train.to_csv(os.path.join(self.config.root_dir, "train.csv"),index = False)
         test.to_csv(os.path.join(self.config.root_dir, "test.csv"),index = False)

@@ -2,6 +2,8 @@ pandas
 numpy
 scikit-learn
 matplotlib
+glob
+joblib
 
 mlflow==3.1.4
 dagshub==0.7.0 # mlflow
@@ -12,7 +14,6 @@ python-box==6.0.2
 pyYAML # read YAML configuration files
 tqdm
 ensure==1.0.2
-joblib
 types-PyYAML
 
 
