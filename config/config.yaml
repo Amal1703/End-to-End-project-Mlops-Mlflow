@@ -6,8 +6,8 @@ artifacts_root: artifacts # le dossier racine qui contient les résultats de cha
 
 data_ingestion:  # data_ingestion : Télécharge les données, Les sauvegarde et lesdézippe
   root_dir: artifacts/data_ingestion # Indique le dossier de travail pour l'étape d'ingestion.
-  source_URL: https://github.com/Amal1703/End-to-End-project-Mlops-Mlflow/blob/main/dataset/Housing.zip
-  local_data_file: artifacts/data_ingestion/data.zip # Chemin local où sera enregistré les données téléchargé
+  source_URL: https://raw.githubusercontent.com/Amal1703/End-to-End-project-Mlops-Mlflow/main/dataset/Housing.csv
+  local_data_file: artifacts/data_ingestion # Chemin local où sera enregistré les données téléchargé
   unzip_dir: artifacts/data_ingestion
 
 data_validation:  # consiste à vérifier que les données sont correctes
