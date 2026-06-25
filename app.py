@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 import os 
 import numpy as np
 import pandas as pd
-from mlProject.pipeline.prediction import PredictionPipeline
+from mlProject.pipeline.stage_06_prediction_new_data import PredictionPipeline
 
 
 # Pour voir la de index.html excuter le code ci dessous
@@ -36,24 +36,28 @@ def index():
     if request.method == 'POST': # POST : Sert à envoyer des données au serveur. Utilisation : formulaire HTML, login / password, envoi de features pour un modèle ML
         try:
             #  reading the inputs given by the user (from web)
-            fixed_acidity =float(request.form['fixed_acidity'])
-            volatile_acidity =float(request.form['volatile_acidity'])
-            citric_acid =float(request.form['citric_acid'])
-            residual_sugar =float(request.form['residual_sugar'])
-            chlorides =float(request.form['chlorides'])
-            free_sulfur_dioxide =float(request.form['free_sulfur_dioxide'])
-            total_sulfur_dioxide =float(request.form['total_sulfur_dioxide'])
-            density =float(request.form['density'])
-            pH =float(request.form['pH'])
-            sulphates =float(request.form['sulphates'])
-            alcohol =float(request.form['alcohol'])
+            area = float(request.form['area'])
+            bedrooms = int(request.form['bedrooms'])
+            bathrooms = int(request.form['bathrooms'])
+            stories = int(request.form['stories'])
+            
+            mainroad = str(request.form['mainroad']) 
+            guestroom = str(request.form['guestroom']) 
+            basement = str(request.form['basement'])   
+            hotwaterheating = str(request.form['hotwaterheating'])   
+            
+            airconditioning = str(request.form['airconditioning'])     
+            parking = int(request.form['parking'])    
+            prefarea = str(request.form['prefarea'])   
+            furnishingstatus = str(request.form['furnishingstatus'])           
 
-
-            data = [fixed_acidity,volatile_acidity,citric_acid,residual_sugar,chlorides,free_sulfur_dioxide,total_sulfur_dioxide,density,pH,sulphates,alcohol]
-            data = np.array(data).reshape(1, 11)
+            data = [area,bedrooms,bathrooms,stories,mainroad,guestroom,basement,hotwaterheating,airconditioning,parking,prefarea,furnishingstatus]
+            
+            #data = np.array(data).reshape(1, 12)
             
             obj = PredictionPipeline()
-            predict = obj.predict(data)
+            data_normalized = obj.Normalize_input_data(data)
+            predict = obj.predict(data_normalized)
 
             return render_template('results.html', prediction = str(predict))
 

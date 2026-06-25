@@ -19,7 +19,9 @@ class DataValidationConfig:
 class DataTransformationConfig:
     root_dir: Path
     data_path: Path
-    all_schema: dict # read the file schema.yaml and save it in a dictionary format   
+    transf_data_file: str
+    encoder_file: str
+    all_schema: dict # read the file schema.yaml and save it in a dictionary format 
     
 @dataclass(frozen=True)
 class ModelTrainerConfig:

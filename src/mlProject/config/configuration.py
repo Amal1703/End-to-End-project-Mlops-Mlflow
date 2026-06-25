@@ -61,6 +61,8 @@ class ConfigurationManager:
         data_transformation_config = DataTransformationConfig(
             root_dir = config.root_dir,
             data_path = config.data_path,
+            transf_data_file = config.transf_data_file,
+            encoder_file = config.encoder_file,
             all_schema = self.schema,
         )
 

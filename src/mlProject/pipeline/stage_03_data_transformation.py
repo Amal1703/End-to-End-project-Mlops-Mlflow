@@ -12,8 +12,8 @@ class DataValidationTransformationPipeline:
         config = ConfigurationManager()
         data_transformation_config = config.get_data_transformation_config()
         data_transformation = DataTransformation(config=data_transformation_config)
-        data_normalized = data_transformation. Normalize_data()
-        data_transformation.train_test_splitting(data_normalized)
+        train_data, test_data = data_transformation.train_test_splitting()
+        data_transformation. Normalize_data(train_data, test_data)
 
 
 def DataValidationTransformationPipeline_main() :

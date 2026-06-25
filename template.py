@@ -29,7 +29,7 @@ list_of_files = [
     f"src/{project_name}/pipeline/stage_03_data_transformation.py",
     f"src/{project_name}/pipeline/stage_04_model_trainer.py",
     f"src/{project_name}/pipeline/stage_05_model_evaluation.py",
-    f"src/{project_name}/pipeline/prediction.py",
+    f"src/{project_name}/pipeline/stage_06_prediction_new_data.py",
     
     f"src/{project_name}/entity/__init__.py",
     f"src/{project_name}/entity/config_entity.py",
@@ -49,7 +49,8 @@ list_of_files = [
     "research/02_data_validation.ipynb", 
     "research/03_data_transformation.ipynb",
     "research/04_model_trainer.ipynb",            
-    "research/05_model_evaluation.ipynb",         
+    "research/05_model_evaluation.ipynb",
+    "research/06_prediction_new_data.ipynb",
         
     "templates/index.html",
     "test.py"
