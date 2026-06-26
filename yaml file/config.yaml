@@ -34,3 +34,8 @@ model_evaluation:
   model_path: artifacts/model_trainer
   metric_file_name: artifacts/model_evaluation/metrics.json  
   
+prediction_new_data:
+  model_path: artifacts/model_trainer/model4.joblib
+  transf_data_file: artifacts/data_transformation/transf_data_file.csv
+  encoder_file: artifacts/data_transformation/encoder.pkl
+

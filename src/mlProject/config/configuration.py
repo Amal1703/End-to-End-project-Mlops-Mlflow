@@ -5,6 +5,7 @@ from mlProject.entity.config_entity import DataValidationConfig
 from mlProject.entity.config_entity import DataTransformationConfig
 from mlProject.entity.config_entity import ModelTrainerConfig
 from mlProject.entity.config_entity import ModelEvaluationConfig
+from mlProject.entity.config_entity import PredictionNewDataConfig
 from mlProject.constants.Mlflow_uri import Mlflow_Tracking_uri
 
 class ConfigurationManager:
@@ -78,7 +79,7 @@ class ConfigurationManager:
         create_directories([config.root_dir])
 
         model_trainer_config = ModelTrainerConfig(
-            root_dir=config.root_dir,
+            root_dir = config.root_dir,
             train_data_path = config.train_data_path,
             test_data_path = config.test_data_path,
             model_name = config.model_name,
@@ -98,13 +99,26 @@ class ConfigurationManager:
         create_directories([config.root_dir])
 
         model_evaluation_config = ModelEvaluationConfig(
-            root_dir=config.root_dir,
-            test_data_path=config.test_data_path,
+            root_dir = config.root_dir,
+            test_data_path = config.test_data_path,
             model_path = config.model_path,
-            all_params=params,
+            all_params = params,
             metric_file_name = config.metric_file_name,
             target_column = schema.name,
             mlflow_uri = Mlflow_Tracking_uri,
         )
 
         return model_evaluation_config
+    
+    def get_prediction_new_data_config(self) -> PredictionNewDataConfig:
+        config = self.config.prediction_new_data
+        schema = self.schema.COLUMNS
+
+        prediction_new_data_config = PredictionNewDataConfig(
+            model_path = config.model_path,
+            transf_data_file = config.transf_data_file,
+            encoder_file = config.encoder_file,
+            column_str_name = [k for k, v in schema.items() if v == "str"]
+        )
+
+        return prediction_new_data_config

@@ -17,6 +17,7 @@ list_of_files = [
     f"src/{project_name}/components/data_transformation.py",     
     f"src/{project_name}/components/model_trainer.py",     
     f"src/{project_name}/components/model_evaluation.py",        
+    f"src/{project_name}/components/prediction_new_data.py",     
     
     f"src/{project_name}/utils/__init__.py",
     f"src/{project_name}/utils/common.py",
@@ -29,31 +30,30 @@ list_of_files = [
     f"src/{project_name}/pipeline/stage_03_data_transformation.py",
     f"src/{project_name}/pipeline/stage_04_model_trainer.py",
     f"src/{project_name}/pipeline/stage_05_model_evaluation.py",
-    f"src/{project_name}/pipeline/stage_06_prediction_new_data.py",
     
     f"src/{project_name}/entity/__init__.py",
     f"src/{project_name}/entity/config_entity.py",
     f"src/{project_name}/constants/__init__.py",
     
-    "config/config.yaml",
-    "params.yaml",
-    "schema.yaml",
+    "yaml file/config.yaml",
+    "yaml file/params.yaml",
+    "yaml file/schema.yaml",
+    
     "main.py",
     "app.py",
     "Dockerfile",
     "requirements.txt",
     "setup.py",
     
-    "research/trials.ipynb",
-    "research/01_data_ingestion.ipynb",
-    "research/02_data_validation.ipynb", 
-    "research/03_data_transformation.ipynb",
-    "research/04_model_trainer.ipynb",            
-    "research/05_model_evaluation.ipynb",
-    "research/06_prediction_new_data.ipynb",
+    "test/trials.ipynb",
+    "test/01_data_ingestion.ipynb",
+    "test/02_data_validation.ipynb", 
+    "test/03_data_transformation.ipynb",
+    "test/04_model_trainer.ipynb",            
+    "test/05_model_evaluation.ipynb",
+    "test/06_prediction_new_data.ipynb",
         
     "templates/index.html",
-    "test.py"
 ]
 
 for filepath in list_of_files:

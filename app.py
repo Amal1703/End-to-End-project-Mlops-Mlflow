@@ -2,8 +2,9 @@ from flask import Flask, render_template, request
 import os 
 import numpy as np
 import pandas as pd
-from mlProject.pipeline.stage_06_prediction_new_data import PredictionPipeline
-
+from mlProject.config.configuration import ConfigurationManager
+from mlProject.components.prediction_new_data import PredictionNewDataPipeline
+from mlProject import logger
 
 # Pour voir la de index.html excuter le code ci dessous
 # index.html est un template géner par le site (bootstrap) :
@@ -55,14 +56,16 @@ def index():
             
             #data = np.array(data).reshape(1, 12)
             
-            obj = PredictionPipeline()
-            data_normalized = obj.Normalize_input_data(data)
-            predict = obj.predict(data_normalized)
+            config = ConfigurationManager()   
+            pred_new_data_config = config.get_prediction_new_data_config()
+            pred_new_data = PredictionNewDataPipeline (config = pred_new_data_config)
+            data_normalized = pred_new_data.Normalize_input_data (data)
+            predict = pred_new_data.predict(data_normalized)
 
             return render_template('results.html', prediction = str(predict))
 
         except Exception as e:
-            print('The Exception message is: ',e)
+            print('The Exception message is: ', e)
             return 'something is wrong'
 
     else: # GET : Sert à récupérer des données. Utilisation : afficher une page, récupérer des infos, recherche simple

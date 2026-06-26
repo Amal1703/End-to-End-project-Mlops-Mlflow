@@ -42,3 +42,11 @@ class ModelEvaluationConfig:
     metric_file_name: Path
     target_column: str
     mlflow_uri: str
+    
+
+@dataclass(frozen=True)
+class PredictionNewDataConfig:
+    model_path: Path
+    transf_data_file: Path
+    encoder_file: Path
+    column_str_name: str

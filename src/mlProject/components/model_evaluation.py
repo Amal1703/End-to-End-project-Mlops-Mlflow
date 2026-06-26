@@ -33,8 +33,6 @@ class ModelEvaluation:
 
         test_data = pd.read_csv(self.config.test_data_path)
         
-        #model = joblib.load(self.config.model_path)
-        
        # Charger le model le plus récent
         model_dir = self.config.model_path
 
