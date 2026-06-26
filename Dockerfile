@@ -1,13 +1,19 @@
 # Ce fichier s'appelle un Dockerfile. Il décrit comment construire une image Docker pour une application
 
-FROM python:3.8-slim-buster # Choisir l’environnement de base
+# Choisir l’environnement de base
+FROM python:3.9.9-slim-buster 
 
-RUN apt update -y && apt install awscli -y # Met à jour les packages && installe AWS CLI
+# Met à jour les packages && installe AWS CLI
+RUN apt update -y && apt install awscli -y 
 
-WORKDIR /app # Dossier de travail dans le container (équivalent de cd /app)
+# Dossier de travail dans le container (équivalent de cd /app)
+WORKDIR /app 
 
-COPY . /app # Copie ton projet dans le container
+# Copie ton projet dans le container
+COPY . /app 
 
-RUN pip install -r requirements.txt # Installe les dépendances Python
+ # Installe les dépendances Python
+RUN pip install -r requirements.txt 
 
-CMD ["python3", "app.py"] # Lance application 
+# Lance application 
+CMD ["python3", "app.py"] 
