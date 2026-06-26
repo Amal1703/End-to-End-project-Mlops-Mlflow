@@ -1,7 +1,7 @@
 # Ce fichier s'appelle un Dockerfile. Il décrit comment construire une image Docker pour une application
 
 # Choisir l’environnement de base
-FROM python:3.9.9-slim-buster 
+FROM python:3.9-slim-bookworm
 
 # Met à jour les packages && installe AWS CLI
 RUN apt update -y && apt install awscli -y 
