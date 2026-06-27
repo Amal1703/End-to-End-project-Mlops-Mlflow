@@ -33,7 +33,7 @@ class ModelEvaluation:
 
         test_data = pd.read_csv(self.config.test_data_path)
         
-       # Charger le model le plus récent
+       # load the most recent model
         model_dir = self.config.model_path
 
         latest_model = max(
@@ -43,13 +43,15 @@ class ModelEvaluation:
 
         model = joblib.load(latest_model)
 
+
         test_x = test_data.drop([self.config.target_column], axis=1)
         test_y = test_data[[self.config.target_column]]
 
         mlflow.set_registry_uri(self.config.mlflow_uri)
         tracking_url_type_store = urlparse(mlflow.get_tracking_uri()).scheme
 
-        mlflow.set_experiment(experiment_name) # define the experiment name
+        # define the experiment name
+        mlflow.set_experiment(experiment_name) 
         
         with mlflow.start_run(run_name = (self.params.Model_name +  "_model") ):
 
@@ -57,12 +59,12 @@ class ModelEvaluation:
 
             (rmse, mae, r2) = self.eval_metrics(test_y, predicted_qualities)
             
-            # Saving metrics as local
+            # save metrics 
             scores = {"rmse": rmse, "mae": mae, "r2": r2}
             
 
-        # if the metric file name  already exists, add 1 to the metric file name to have a new metric file name 
-            metric_file_name = self.config.metric_file_name  # ex: metrics.json
+            # if the metric file name  already exists, add 1 to the metric file name to have a new metric file name 
+            metric_file_name = self.config.metric_file_name  
             base_name, extension = os.path.splitext(metric_file_name)
 
             counter = 1
@@ -73,7 +75,7 @@ class ModelEvaluation:
                 counter += 1
 
             save_json(path=Path(new_metric_file_name), data={**scores, 
-                                                             "loaded_model_params": str(model),
+                                                            "loaded_model_params": str(model),
                                                             "loaded_model_path": str(Path(latest_model).as_posix()) })
 
 
@@ -84,12 +86,12 @@ class ModelEvaluation:
             mlflow.log_metric("mae", mae)
 
             
-            # If I am connected to an MLflow server (DagsHub) => register the model
+            # if I am connected to an MLflow server (DagsHub) => register the model
             if tracking_url_type_store != "file":
 
-                # Register the model
+                # register the model
                 mlflow.sklearn.log_model(sk_model=model, artifact_path="model",registered_model_name = self.params.Model_name )
 
-            # If I am working locally, save the model as a file          
+            # if I am working locally, save the model as a file          
             else:  
                 mlflow.sklearn.log_model(sk_model=model, artifact_path="model",registered_model_name = self.params.Model_name)

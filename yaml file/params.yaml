@@ -1,4 +1,4 @@
 Model_name: ElasticNet
-# params du modéle
+# model parameters
 alpha: 2
 l1_ratio: 0.9999

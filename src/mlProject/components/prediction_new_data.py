@@ -4,8 +4,8 @@ from pathlib import Path
 import numpy as np
 from mlProject.entity.config_entity import PredictionNewDataConfig
 
-# Ajouter méthode de noramlisation, PCA etc si vous avez en training
 class PredictionNewDataPipeline:
+    
     def __init__(self, config: PredictionNewDataConfig):
         self.config = config
 
@@ -24,11 +24,10 @@ class PredictionNewDataPipeline:
             encoded_value = encoder[col].transform([value])[0]
             encoded_str_values.append(encoded_value)
 
-        # remplaer str dans input data par [1, 0, 0, 0, 1, 1, 0]
-        # Récupérer les indices des valeurs string
+        # retrieve the indices of string values in input_data
         string_indices = [i for i, value in enumerate(input_data) if isinstance(value, str)]
 
-        # Remplacer chaque valeur string par la valeur correspondante du mapping
+        # replace each string value in input_data with the corresponding value from the encoded_str_values
         for idx, map_val in zip(string_indices, encoded_str_values):
             input_data[idx] = map_val
 

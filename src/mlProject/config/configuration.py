@@ -19,10 +19,9 @@ class ConfigurationManager:
         self.params = read_yaml(params_filepath)
         self.schema = read_yaml(schema_filepath)
 
-        create_directories([self.config.artifacts_root]) # crée le dossier artifacts (correspond au artifacts_root dans fichier config.yaml)
+        create_directories([self.config.artifacts_root]) 
 
 
-    # Cette fonction retourne un objet de type DataIngestionConfig
     def get_data_ingestion_config(self) -> DataIngestionConfig:
         config = self.config.data_ingestion
 
@@ -56,6 +55,7 @@ class ConfigurationManager:
     
     def get_data_transformation_config(self) -> DataTransformationConfig:
         config = self.config.data_transformation
+        schema = self.schema.COLUMNS
 
         create_directories([config.root_dir])
 
@@ -65,6 +65,7 @@ class ConfigurationManager:
             transf_data_file = config.transf_data_file,
             encoder_file = config.encoder_file,
             all_schema = self.schema,
+            column_str_name = [k for k, v in schema.items() if v == "str"]
         )
 
         return data_transformation_config

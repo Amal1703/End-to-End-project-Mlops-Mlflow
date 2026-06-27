@@ -1,19 +1,20 @@
-# Ce fichier s'appelle un Dockerfile. Il décrit comment construire une image Docker pour une application
+# This file is called a Dockerfile
+# It describes how to build a Docker image for an application
 
-# Choisir l’environnement de base
+# Select the base environment
 FROM python:3.9-slim-bookworm
 
-# Met à jour les packages && installe AWS CLI
+#  Update the packages and installs AWS CLI
 RUN apt update -y && apt install awscli -y 
 
-# Dossier de travail dans le container (équivalent de cd /app)
+# Working directory inside the container (equivalent to cd /app)
 WORKDIR /app 
 
-# Copie ton projet dans le container
+# Copy your project into the container
 COPY . /app 
 
- # Installe les dépendances Python
+ # Install the Python dependencies
 RUN pip install -r requirements.txt 
 
-# Lance application 
+# Run the application
 CMD ["python3", "app.py"] 

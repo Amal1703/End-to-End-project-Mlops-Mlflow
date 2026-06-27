@@ -2,12 +2,19 @@ import os
 import sys
 import logging
 
-logging_str = "[%(asctime)s: %(levelname)s: %(module)s: %(message)s]" # levelname : Niveau du log (INFO, ERROR, etc.) , module : Nom du fichier Python qui a créé le log, message : message du log
+# asctime: The date and time when the log record was created
+# levelname: log level (INFO, ERROR, etc.)
+# module: name of the Python file that generated the log
+# message: log message
+logging_str = "[%(asctime)s: %(levelname)s: %(module)s: %(message)s]" 
 
 
+# define the path of the file that will contain the logs
 log_dir = "logs"
-log_filepath = os.path.join(log_dir,"running_logs.log") # Définit le chemin du fichier qui contiendra les log
-os.makedirs(log_dir, exist_ok=True) # crée le dossier "logs"
+log_filepath = os.path.join(log_dir,"running_logs.log") 
+
+# Create a folder "logs"
+os.makedirs(log_dir, exist_ok=True) 
 
 
 logging.basicConfig(
@@ -20,4 +27,5 @@ logging.basicConfig(
     ]
 )
 
-logger = logging.getLogger("mlProjectLogger") #  crée un logger avec un nom spécifique pour votre projet
+# Create a logger with a specific name for your project
+logger = logging.getLogger("mlProjectLogger")

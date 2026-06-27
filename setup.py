@@ -6,9 +6,9 @@ with open("README.md", "r", encoding="utf-8") as f:
 
 __version__ = "0.0.0"
 
-REPO_NAME = "End-to-End-project-Mlops-Mlflow" # nom de votre repo GitHub
+REPO_NAME = "End-to-End-project-Mlops-Mlflow" # name of your GitHub repository
 AUTHOR_USER_NAME = "Amal Kammoun"
-SRC_REPO = "mlProject" # variable qui stocke le nom de votre package tel qu'il apparaîtra sur PyPI et comment les utilisateurs l'installeront
+SRC_REPO = "mlProject" # Variable that stores the package name as it will appear on PyPI and how users will install it
 AUTHOR_EMAIL = "kamounamal34@gmail.com"
 
 
@@ -21,13 +21,15 @@ setuptools.setup(
     long_description=long_description,
     long_description_content="text/markdown",
     url=f"https://github.com/{AUTHOR_USER_NAME}/{REPO_NAME}", # Github url
-    project_urls={  # project_urls : Les liens supplémentaires sur votre page PyPI 
-        "Bug Tracker": f"https://github.com/{AUTHOR_USER_NAME}/{REPO_NAME}/issues", # Signaler des bugs
+    project_urls={  # project_urls : additional links displayed on your PyPI page
+        "Bug Tracker": f"https://github.com/{AUTHOR_USER_NAME}/{REPO_NAME}/issues", # report bugs
     },
-    package_dir={"": "src"},  # code source est dans le dossier src
-    packages=setuptools.find_packages(where="src") # recherche automatiquement les packages Python sous src
+    package_dir={"": "src"},  # source code is located in the src folder
+    packages=setuptools.find_packages(where="src") # automatically discovers Python packages under the src directory
 )
 
-# la page PyPI de votre package End-to-End-project-Mlops-Mlflow (SRC_REPO)
-# La page PyPI est la page web publique que tout le monde voit quand ils cherchent ou consultent votre package sur pypi.org
-# PyPI :	Page d'un package Python avec description, installation, code
+
+# The PyPI page of your package End-to-End-project-Mlops-Mlflow (SRC_REPO)
+# The PyPI page is the public web page that everyone can see when they search for
+# or view your package on pypi.org.
+# PyPI: a Python package page containing the description, installation instructions and code

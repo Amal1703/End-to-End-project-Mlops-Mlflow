@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from pathlib import Path
 
-@dataclass(frozen=True) # frozen=True signifie que les instances de la dataclass devient immutable (en lecture seule après sa création, modification des instance non autorisé)
+@dataclass(frozen=True) 
 class DataIngestionConfig:
     root_dir: Path
     source_URL: str
@@ -13,7 +13,7 @@ class DataValidationConfig:
     root_dir: Path
     unzip_data_dir: Path
     STATUS_FILE: str
-    all_schema: dict # read the file schema.yaml and save it in a dictionary format
+    all_schema: dict 
 
 @dataclass(frozen=True)
 class DataTransformationConfig:
@@ -21,7 +21,8 @@ class DataTransformationConfig:
     data_path: Path
     transf_data_file: str
     encoder_file: str
-    all_schema: dict # read the file schema.yaml and save it in a dictionary format 
+    all_schema: dict 
+    column_str_name: str
     
 @dataclass(frozen=True)
 class ModelTrainerConfig:
