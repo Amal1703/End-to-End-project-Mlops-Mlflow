@@ -1,5 +1,17 @@
 import setuptools
 
+
+#The setup.py file is the identity card of the project.
+
+#It answers questions like:
+
+#What is the name of the project?
+#What is its version?
+#Who is the author?
+#Which Python files are part of the package?
+#Which libraries need to be installed?
+
+
 with open("README.md", "r", encoding="utf-8") as f:
     long_description = f.read()
 
@@ -28,8 +40,6 @@ setuptools.setup(
     packages=setuptools.find_packages(where="src") # automatically discovers Python packages under the src directory
 )
 
+# python setup.py install
 
-# The PyPI page of your package End-to-End-project-Mlops-Mlflow (SRC_REPO)
-# The PyPI page is the public web page that everyone can see when they search for
-# or view your package on pypi.org.
-# PyPI: a Python package page containing the description, installation instructions and code
+
